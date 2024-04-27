@@ -177,6 +177,7 @@
                       <button class="btn btn-success" type="reset">
                         Cancelar</button
                       ><button
+                        id="btn-cadastrar"
                         class="btn btn-success text-bg-success"
                         type="submit"
                       >
@@ -188,8 +189,8 @@
                   <input type="submit" value="Cadastrar" class="btn-principal"> 
                 </form>
                 <div id="att_usuario">
-                  <h1>Lista de Usuarios</h1>
-                  <a href="{% url 'usuarios' %}" class="btn btn-success">Novo Usuario</a>
+                  <a href="{% url 'usuarios' %}"
+                   class="btn btn-success">Novo Usuario</a>
                   <table class="table table-striped">
                       <tr>
                           <th>Nome</th>
@@ -219,7 +220,7 @@
                               <td>{{ usuario.celular }}</td>
                               <td>{{ usuario.senha }}</td>
                               <td>{{ usuario.senha2 }}</td>
-                              <td colspan="3">
+                              <td colspan="2">
                                   <a class="btn btn-primary" href="">Editar</a>
                                   <a class="btn btn-warning" href="">Detalhes</a>
                                   <a class="btn btn-danger" href="">Remover</a>
@@ -233,11 +234,8 @@
         </div>
       </div>
     </section>
-    <script src="bootstrap.bundle.min.js"></script>
-    <script src="script.min.js?h=7246b6682f3aace3a96f124374a8b710"></script>
-    <script src='usuarios\templates\js\jquery-3.7.1.min.js'></script>
-    <script src='funcoes.js'></script>
-    <script src='usuarios.js'></script>
+     <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
+     <script src="{% static 'funcoes.js' %}"></script>
     {% endblock %}
   </body>
 </html>

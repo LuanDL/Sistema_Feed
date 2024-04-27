@@ -18,7 +18,7 @@
     <!-- Start: Navbar menu Sistema Feed -->
     <nav class="navbar navbar-light navbar-expand-md text-bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="Home.html">Feed</a
+        <a class="navbar-brand" href="{% url 'home' %}">Feed</a
         ><button
           data-bs-toggle="collapse"
           class="navbar-toggler"
@@ -39,11 +39,11 @@
                   >Cadastros</a
                 >
                 <div class="dropdown-menu text-bg-success">
-                  <a class="dropdown-item link-light" href="/CadUsuarios.html"
+                  <a class="dropdown-item link-light" href="{% url 'usuarios' %}"
                     >Usuários</a
-                  ><a class="dropdown-item link-light" href="/CadMaquinas.html"
+                  ><a class="dropdown-item link-light" href="{% url 'maquinas' %}"
                     >Máquinas</a
-                  ><a class="dropdown-item link-light" href="/CadLocais.html"
+                  ><a class="dropdown-item link-light" href="{% url 'locais' %}"
                     >Locais</a
                   >
                 </div>
@@ -96,18 +96,21 @@
                 </div>
               </div>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="padding: 8px;">
+                <div class ="nav-item dropdown">
               <a
-                class="dropdown-toggle nav-link link-light justify-content-end align-items-end align-content-end"
+                class="dropdown-toggle link-light"
                 aria-expanded="false"
                 data-bs-toggle="dropdown"
-                >Menu do Usuário&nbsp;</a
+                href="menuusuario"
+                >Menu do Usuário</a
               >
-              <div class="dropdown-menu text-light text-bg-success">
-                <a class="dropdown-item link-light" href="#">Meu Perfil</a
-                ><a class="dropdown-item link-light" href="#">Alterar Senha</a
+              <div class="dropdown-menu text-bg-success">
+                <a class="dropdown-item link-light" href="perfil.html">Meu Perfil</a
+                ><a class="dropdown-item link-light" href="alterarsenha.html">Alterar Senha</a
                 ><a class="dropdown-item link-light" href="#">Sair</a>
               </div>
+            </div>
             </li>
           </ul>
         </div>
@@ -120,11 +123,8 @@
 
     {%block 'body' %} {% endblock %}
     <!-- End: Navbar menu Sistema Feed -->
-    {% comment %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/script.min.js?h=7246b6682f3aace3a96f124374a8b710"></script>
-    {% endcomment %} {% comment %}
-    <script src="{% static 'script.min.js' %}"></script>
-    {% endcomment %}
+
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script src="{% static 'script.min.js' %}"></script>    
   </body>
-</html>
+</html> 
