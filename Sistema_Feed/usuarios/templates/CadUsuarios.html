@@ -1,0 +1,243 @@
+{% extends "Navbar.html" %}
+{% load static %}
+
+{% block 'head' %}
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+{% endblock %}
+
+    {%block 'dashboard'%}
+    <section style="margin-top: 20px; margin-left: 35px; margin-right: 35px">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body text-bg-dark">
+                <h1 class="text-center card-title">Cadastrar Usuário</h1>
+                <form
+                  style="
+                    font-family: 'Source Sans Pro', sans-serif;
+                    border-radius: 0px;
+                    border-width: 0px;
+                    max-height: 800px;
+                  "
+                >
+                <div id="adicionar-usuario" class="adicionar-usuario">
+                  <form action={% url "usuarios" %} method="POST">{% csrf_token %}
+
+                  <div style="margin: 0px 0px 8px">
+                    <!-- Start: Nome --><input
+                      class="form-control"
+                      type="text"
+                      name="Nome"
+                      id="nome"
+                      value="{{nome}}"
+                      placeholder="Nome"
+                      style="height: 30px"
+                    /><!-- End: Nome -->
+                  </div>
+                  <div style="margin: 0px 0px 8px">
+                    <!-- Start: Email --><input
+                      class="form-control"
+                      type="email"
+                      name="Email"
+                      id="email"
+                      value="{{email}}"
+                      placeholder="Email"
+                      style="height: 30px"
+                    /><!-- End: Email -->
+                  </div>
+                  <div>
+                    <input
+                      class="form-control d-inline-flex"
+                      type="number"
+                      name="CEP"
+                      id="cep"
+                      value="{{cep}}"
+                      placeholder="CEP"
+                      min="0"
+                      max="100000000"
+                      required=""
+                      style="height: 30px; margin: 0px 0px 8px"
+                    /><!-- Start: Endereço --><input
+                      class="form-control d-inline-flex"
+                      type="text"
+                      name="Endereço"
+                      id="endereco"
+                      value="{{endereco}}"
+                      placeholder="Endereço"
+                      style="margin: 0px 0px 8px; height: 30px"
+                    /><!-- End: Endereço --><!-- Start: EndNumero --><input
+                      class="form-control d-inline-flex"
+                      type="number"
+                      name="Numero"
+                      id="numero"
+                      value="{{numero}}"
+                      min="1"
+                      max="1000000000"
+                      placeholder="Numero"
+                      style="margin: 0px 0px 8px; height: 30px"
+                    /><!-- End: EndNumero --><!-- Start: EndBairro --><input
+                      class="form-control d-inline-flex"
+                      type="text"
+                      name="Bairro"
+                      id="bairro"
+                      value="{{bairro}}"
+                      placeholder="Bairro"
+                      style="margin: 0px 0px 8px; height: 30px"
+                    /><!-- End: EndBairro --><!-- Start: EndCidade --><input
+                      class="form-control d-inline-flex"
+                      type="text"
+                      name="Cidade"
+                      id="cidade"
+                      value="{{cidade}}"
+                      placeholder="Cidade"
+                      style="margin: 0px 0px 8px; height: 30px"
+                    /><!-- End: EndCidade --><!-- Start: EndEstado --><input
+                      class="form-control d-inline-flex align-items-md-end"
+                      type="text"
+                      name="Estado"
+                      id="estado"
+                      value="{{estado}}"
+                      placeholder="Estado"
+                      style="margin: 0px 0px 8px; height: 30px"
+                    /><!-- End: EndEstado -->
+                  </div>
+                  <div style="margin: 0px 0px 8px">
+                    <!-- Start: Telefone --><input
+                      class="form-control"
+                      type="tel"
+                      name="Telefone"
+                      id="telefone"
+                      value="{{telefone}}"
+                      placeholder="Telefone"
+                      style="height: 30px; margin: 0px 0px 8px"
+                    /><!-- End: Telefone --><!-- Start: Celular --><input
+                      class="form-control"
+                      type="tel"
+                      name="Celular"
+                      placeholder="Celular"
+                      id="celular"
+                      value="{{celular}}"
+                      style="height: 30px; margin: 0px 0px 8px"
+                    /><!-- End: Celular -->
+                  </div>
+                  <div style="margin: 0px 0px 8px">
+                    <input
+                      type="password"
+                      name="Senha"
+                      id="senha"
+                      value="{{senha}}"
+                      placeholder="Senha"
+                      style="
+                        margin: 0px 0px 8px;
+                        height: 30px;
+                        margin-right: 8px;
+                      "
+                    /><input
+                      type="password"
+                      name="Confirmar Senha"
+                      id="senha2"
+                      value="{{senha2}}"
+                      placeholder="Confirmar Senha"
+                      style="margin: 0px 0px 8px; height: 30px"
+                    />
+                  </div>
+                  <div>
+                    <div class="row">
+                      <div class="col">
+                        <p>
+                          Grupo de acesso:<select
+                            class="form-select"
+                            style="height: 34px"
+                          >
+                            <optgroup label="Selecione">
+                              <option value="importacao">Importação</option>
+                              <option value="usuario">Usuário</option>
+                              <option value="administrador">Administrador</option>
+                            </optgroup>
+                          </select>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      <div class="col">
+                        <p>
+                          Observações:<textarea
+                            class="form-control"
+                            style="margin: 0px 0px 8px; height: 60px"
+                          ></textarea>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="text-align: center">
+                    <div class="btn-group" role="group">
+                      <button class="btn btn-success" type="reset">
+                        Cancelar</button
+                      ><button
+                        class="btn btn-success text-bg-success"
+                        type="submit"
+                      >
+                        Cadastrar
+                      </button>
+                    </div>
+                  </div>
+                  <br>
+                  <input type="submit" value="Cadastrar" class="btn-principal"> 
+                </form>
+                <div id="att_usuario">
+                  <h1>Lista de Usuarios</h1>
+                  <a href="{% url 'usuarios' %}" class="btn btn-success">Novo Usuario</a>
+                  <table class="table table-striped">
+                      <tr>
+                          <th>Nome</th>
+                          <th>email</th>
+                          <th>cep</th>
+                          <th>Endereço</th>
+                          <th>numero</th>
+                          <th>bairro</th>
+                          <th>cidade</th>
+                          <th>estado</th>
+                          <th>Telefone</th>
+                          <th>celular</th>
+                          <th>senha</th>
+                          <th>senha2</th>
+                      </tr>
+                      {% for usuario in usuarios %}
+                          <tr>
+                              <td>{{ usuario.nome }}</td>
+                              <td>{{ usuario.email }}</td>
+                              <td>{{ usuario.cep }}</td>
+                              <td>{{ usuario.endereco }}</td>
+                              <td>{{ usuario.numero }}</td>
+                              <td>{{ usuario.bairro }}</td>
+                              <td>{{ usuario.cidade }}</td>
+                              <td>{{ usuario.estado }}</td>
+                              <td>{{ usuario.telefone }}</td>
+                              <td>{{ usuario.celular }}</td>
+                              <td>{{ usuario.senha }}</td>
+                              <td>{{ usuario.senha2 }}</td>
+                              <td colspan="3">
+                                  <a class="btn btn-primary" href="">Editar</a>
+                                  <a class="btn btn-warning" href="">Detalhes</a>
+                                  <a class="btn btn-danger" href="">Remover</a>
+                              </td>
+                          </tr>
+                      {% endfor %}
+                  </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="script.min.js?h=7246b6682f3aace3a96f124374a8b710"></script>
+    <script src='usuarios\templates\js\jquery-3.7.1.min.js'></script>
+    <script src='funcoes.js'></script>
+    <script src='usuarios.js'></script>
+    {% endblock %}
+  </body>
+</html>
