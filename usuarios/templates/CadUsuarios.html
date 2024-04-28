@@ -186,49 +186,7 @@
                     </div>
                   </div>
                   <br>
-                  <input type="submit" value="Cadastrar" class="btn-principal"> 
                 </form>
-                <div id="att_usuario">
-                  <a href="{% url 'usuarios' %}"
-                   class="btn btn-success">Novo Usuario</a>
-                  <table class="table table-striped">
-                      <tr>
-                          <th>Nome</th>
-                          <th>email</th>
-                          <th>cep</th>
-                          <th>Endereço</th>
-                          <th>numero</th>
-                          <th>bairro</th>
-                          <th>cidade</th>
-                          <th>estado</th>
-                          <th>Telefone</th>
-                          <th>celular</th>
-                          <th>senha</th>
-                          <th>senha2</th>
-                      </tr>
-                      {% for usuario in usuarios %}
-                          <tr>
-                              <td>{{ usuario.nome }}</td>
-                              <td>{{ usuario.email }}</td>
-                              <td>{{ usuario.cep }}</td>
-                              <td>{{ usuario.endereco }}</td>
-                              <td>{{ usuario.numero }}</td>
-                              <td>{{ usuario.bairro }}</td>
-                              <td>{{ usuario.cidade }}</td>
-                              <td>{{ usuario.estado }}</td>
-                              <td>{{ usuario.telefone }}</td>
-                              <td>{{ usuario.celular }}</td>
-                              <td>{{ usuario.senha }}</td>
-                              <td>{{ usuario.senha2 }}</td>
-                              <td colspan="2">
-                                  <a class="btn btn-primary" href="">Editar</a>
-                                  <a class="btn btn-warning" href="">Detalhes</a>
-                                  <a class="btn btn-danger" href="">Remover</a>
-                              </td>
-                          </tr>
-                      {% endfor %}
-                  </table>
-              </div>
             </div>
           </div>
         </div>

@@ -8,5 +8,7 @@ urlpatterns = [
     path('home/', include('home.urls')),
     path('usuarios/', include('usuarios.urls')),
     path('maquinas/', include('maquinas.urls')),
-    path('locais/', include('locais.urls'))
+    path('locais/', include('locais.urls')),
+    path('importacao/', include('importacao.urls')),
+    path('ajuda/', include('ajuda.urls'))
 ]

@@ -1,0 +1,80 @@
+{% extends "Navbar.html" %}
+{% load static %}
+
+{% block 'head' %}
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+{% endblock %}
+
+    {%block 'dashboard'%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Sistema Feed</title>
+  </head>
+  <body>
+    <section style="margin-top: 20px; margin-left: 35px; margin-right: 35px">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body text-bg-dark">
+                <h1 class="text-center card-title">Ajuda Calibração</h1>
+                <form
+                  style="
+                    font-family: 'Source Sans Pro', sans-serif;
+                    border-radius: 0px;
+                    border-width: 0px;
+                    max-height: 800px;
+                  "
+                >
+                  <div style="margin: 0px 0px 8px">
+                    <iframe
+                      allowfullscreen=""
+                      frameborder="0"
+                      src="https://www.youtube.com/embed/tOxOQE68GYA"
+                      width="1250"
+                      height="400"
+                      style="max-width: 100%"
+                    ></iframe>
+                  </div>
+                  <div style="margin: 0px 0px 8px">
+                    <a class="btn text-bg-success" role="button"
+                      ><i class="fas fa-file-download"></i>&nbsp;Manual de
+                      Calibração</a
+                    >
+                  </div>
+                  <div style="margin: 0px 0px 8px; height: 110px">
+                    <textarea
+                      class="form-control"
+                      placeholder="Queremos saber sua opinião, deixe aqui a sua critica ou sugestão."
+                      style="height: 110px"
+                    ></textarea>
+                  </div>
+                  <div style="text-align: center; margin: 0px 0px 8px">
+                    <div class="btn-group" role="group">
+                      <button class="btn btn-success" type="reset">
+                        Cancelar</button
+                      ><button
+                        class="btn btn-success text-bg-success"
+                        type="submit"
+                      >
+                        Enviar
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src={% static 'bootstrap.bundle.min.js'%}></script>
+    {% endblock %}
+  </body>
+</html>
