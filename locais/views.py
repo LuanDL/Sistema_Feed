@@ -1,23 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Locais
+from .forms import FormularioLocais
 
 def locais(request):
-        if request.method == "GET":
-                return render(request,'CadLocais.html')
-        elif request.method == "POST":
-                usuario = request.POST.get('usuarios')
-                local = request.POST.get('locais')
-                maquina = request.POST.get('maquinas')
+    form = FormularioLocais()
+    return render(request, 'cadLocais.html', {'form':form})
 
-                maquina = Locais(
-                        usuarios = usuario,
-                        locais = locais,
-                        maquinas = maquina,
-                )
-
-                local.save()
-
-                print(usuario, local, maquina)
-
-                return render(request,'CadLocais.html')
+def cadastrolocal(request):
+    form = FormularioLocais(request.POST)
+    if form.is_valid():
+        form.save()
+        usuario = form.data['usuario']
+        local = form.data['local']
+        maquina = form.data['maquina']
+        return HttpResponse('Salvo com sucesso')
+    return HttpResponse('Erro ao cadastrar')

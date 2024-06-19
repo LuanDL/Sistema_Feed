@@ -1,23 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Maquinas
+from .forms import formulariomaquina
 
 def maquinas(request):
-        if request.method == "GET":
-                return render(request,'cadmaquinas.html')
-        elif request.method == "POST":
-                nome = request.POST.get('Maqnome')
-                codigo = request.POST.get('Maqcod')
-                status = request.POST.get('MaqStatus') == 'True'
+        form = formulariomaquina()
+        return render(request,'cadmaquinas.html', {'form': form})
 
-                maquina = Maquinas(
-                        nome = nome,
-                        codigo = codigo,
-                        status = status,
-                )
-
-                maquina.save()
-
-                print(nome, codigo, status)
-
-                return render(request,'cadmaquinas.html')
+def cadastromaquina(request):
+       form = formulariomaquina(request.POST)
+       if form.is_valid():
+                form.save()
+                nome = form.data['nome']
+                codigo = form.data['codigo']
+                status = form.data['status']
+                return HttpResponse('Salvo com sucesso')
+       return  HttpResponse('Erro ao cadastrar')

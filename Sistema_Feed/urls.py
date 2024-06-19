@@ -10,5 +10,6 @@ urlpatterns = [
     path('maquinas/', include('maquinas.urls')),
     path('locais/', include('locais.urls')),
     path('importacao/', include('importacao.urls')),
-    path('ajuda/', include('ajuda.urls'))
+    path('ajuda/', include('ajuda.urls')),
+    path('relatorios/',include('relatorios.urls'))
 ]

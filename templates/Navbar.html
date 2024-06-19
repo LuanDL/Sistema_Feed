@@ -39,12 +39,9 @@
                   >Cadastros</a
                 >
                 <div class="dropdown-menu text-bg-success">
-                  <a class="dropdown-item link-light" href="{% url 'usuarios' %}"
-                    >Usuários</a
-                  ><a class="dropdown-item link-light" href="{% url 'maquinas' %}"
-                    >Máquinas</a
-                  ><a class="dropdown-item link-light" href="{% url 'locais' %}"
-                    >Locais</a
+                  <a class="dropdown-item link-light" href="{% url 'usuarios' %}">Usuários</a
+                  ><a class="dropdown-item link-light" href="{% url 'maquinas' %}">Máquinas</a
+                  ><a class="dropdown-item link-light" href="{% url 'locais' %}">Locais</a
                   >
                 </div>
               </div>
@@ -64,16 +61,11 @@
                   >Relatórios</a
                 >
                 <div class="dropdown-menu text-bg-success">
-                  <a class="dropdown-item link-light" href="#"
-                    >Relatório de uso</a
-                  ><a class="dropdown-item link-light" href="#"
-                    >Usuários Cadastrados</a
-                  ><a class="dropdown-item link-light" href="#"
-                    >Máquinas Cadastradas</a
-                  ><a class="dropdown-item link-light" href="#"
-                    >Locais Cadastrados</a
-                  >
-                </div>
+                  <a class="dropdown-item link-light" href="#">Relatório de uso</a>
+                  <a class="dropdown-item link-light" href="{% url 'relatoriousuarios' %}">Usuários Cadastrados</a>
+                  <a class="dropdown-item link-light" href="{% url 'relatoriomaquinas' %}">Máquinas Cadastradas</a>
+                  <a class="dropdown-item link-light" href="{% url 'relatoriolocais' %}">Locais Cadastrados</a>
+              </div>              
               </div>
             </li>
             <li class="nav-item" style="padding: 8px">

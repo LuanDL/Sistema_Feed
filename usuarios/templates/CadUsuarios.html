@@ -2,198 +2,81 @@
 {% load static %}
 
 {% block 'head' %}
-  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 {% endblock %}
 
-    {%block 'dashboard'%}
-    <section style="margin-top: 20px; margin-left: 35px; margin-right: 35px">
-      <div class="container">
+{%block 'dashboard'%}
+<section style="margin-top: 20px;margin-left: 35px;margin-right: 35px;">
+    <div class="container">
         <div class="row">
-          <div class="col">
-            <div class="card">
-              <div class="card-body text-bg-dark">
-                <h1 class="text-center card-title">Cadastrar Usuário</h1>
-                <form
-                  style="
-                    font-family: 'Source Sans Pro', sans-serif;
-                    border-radius: 0px;
-                    border-width: 0px;
-                    max-height: 800px;
-                  "
-                >
-                <div id="adicionar-usuario" class="adicionar-usuario">
-                  <form action={% url "usuarios" %} method="POST">{% csrf_token %}
-
-                  <div style="margin: 0px 0px 8px">
-                    <!-- Start: Nome --><input
-                      class="form-control"
-                      type="text"
-                      name="Nome"
-                      id="nome"
-                      value="{{nome}}"
-                      placeholder="Nome"
-                      style="height: 30px"
-                    /><!-- End: Nome -->
-                  </div>
-                  <div style="margin: 0px 0px 8px">
-                    <!-- Start: Email --><input
-                      class="form-control"
-                      type="email"
-                      name="Email"
-                      id="email"
-                      value="{{email}}"
-                      placeholder="Email"
-                      style="height: 30px"
-                    /><!-- End: Email -->
-                  </div>
-                  <div>
-                    <input
-                      class="form-control d-inline-flex"
-                      type="number"
-                      name="CEP"
-                      id="cep"
-                      value="{{cep}}"
-                      placeholder="CEP"
-                      min="0"
-                      max="100000000"
-                      required=""
-                      style="height: 30px; margin: 0px 0px 8px"
-                    /><!-- Start: Endereço --><input
-                      class="form-control d-inline-flex"
-                      type="text"
-                      name="Endereço"
-                      id="endereco"
-                      value="{{endereco}}"
-                      placeholder="Endereço"
-                      style="margin: 0px 0px 8px; height: 30px"
-                    /><!-- End: Endereço --><!-- Start: EndNumero --><input
-                      class="form-control d-inline-flex"
-                      type="number"
-                      name="Numero"
-                      id="numero"
-                      value="{{numero}}"
-                      min="1"
-                      max="1000000000"
-                      placeholder="Numero"
-                      style="margin: 0px 0px 8px; height: 30px"
-                    /><!-- End: EndNumero --><!-- Start: EndBairro --><input
-                      class="form-control d-inline-flex"
-                      type="text"
-                      name="Bairro"
-                      id="bairro"
-                      value="{{bairro}}"
-                      placeholder="Bairro"
-                      style="margin: 0px 0px 8px; height: 30px"
-                    /><!-- End: EndBairro --><!-- Start: EndCidade --><input
-                      class="form-control d-inline-flex"
-                      type="text"
-                      name="Cidade"
-                      id="cidade"
-                      value="{{cidade}}"
-                      placeholder="Cidade"
-                      style="margin: 0px 0px 8px; height: 30px"
-                    /><!-- End: EndCidade --><!-- Start: EndEstado --><input
-                      class="form-control d-inline-flex align-items-md-end"
-                      type="text"
-                      name="Estado"
-                      id="estado"
-                      value="{{estado}}"
-                      placeholder="Estado"
-                      style="margin: 0px 0px 8px; height: 30px"
-                    /><!-- End: EndEstado -->
-                  </div>
-                  <div style="margin: 0px 0px 8px">
-                    <!-- Start: Telefone --><input
-                      class="form-control"
-                      type="tel"
-                      name="Telefone"
-                      id="telefone"
-                      value="{{telefone}}"
-                      placeholder="Telefone"
-                      style="height: 30px; margin: 0px 0px 8px"
-                    /><!-- End: Telefone --><!-- Start: Celular --><input
-                      class="form-control"
-                      type="tel"
-                      name="Celular"
-                      placeholder="Celular"
-                      id="celular"
-                      value="{{celular}}"
-                      style="height: 30px; margin: 0px 0px 8px"
-                    /><!-- End: Celular -->
-                  </div>
-                  <div style="margin: 0px 0px 8px">
-                    <input
-                      type="password"
-                      name="Senha"
-                      id="senha"
-                      value="{{senha}}"
-                      placeholder="Senha"
-                      style="
-                        margin: 0px 0px 8px;
-                        height: 30px;
-                        margin-right: 8px;
-                      "
-                    /><input
-                      type="password"
-                      name="Confirmar Senha"
-                      id="senha2"
-                      value="{{senha2}}"
-                      placeholder="Confirmar Senha"
-                      style="margin: 0px 0px 8px; height: 30px"
-                    />
-                  </div>
-                  <div>
-                    <div class="row">
-                      <div class="col">
-                        <p>
-                          Grupo de acesso:<select
-                            class="form-select"
-                            style="height: 34px"
-                          >
-                            <optgroup label="Selecione">
-                              <option value="importacao">Importação</option>
-                              <option value="usuario">Usuário</option>
-                              <option value="administrador">Administrador</option>
-                            </optgroup>
-                          </select>
-                        </p>
-                      </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-bg-dark">
+                        <h1 class="text-center card-title">Cadastrar Usuário</h1>
+                        <form action="{% url 'usuarios'%}" method="POST" style="font-family: 'Source Sans Pro', sans-serif;border-radius: 0px;border-width: 0px;max-height: 800px;"> {% csrf_token %}
+                            <div style="margin: 0px 0px 8px;">
+                                <input class="form-control" type="text" name="username" placeholder="Nome" style="height: 30px;">
+                            </div>
+                            <div style="margin: 0px 0px 8px;">
+                                <input class="form-control" type="email" name="email" placeholder="Email" style="height: 30px;">
+                            </div>
+                            <div>
+                                <input class="form-control d-inline-flex" type="number" name="cep" placeholder="CEP" min="0" max="100000000" required="true" style="height: 30px;margin: 0px 0px 8px;">
+                                <input class="form-control d-inline-flex" type="text" name="endereco" placeholder="Endereço" style="margin: 0px 0px 8px;height: 30px;">
+                                <input class="form-control d-inline-flex" type="number" name="numero" min="1" max="1000000000" placeholder="Numero" style="margin: 0px 0px 8px;height: 30px;">
+                                <input class="form-control d-inline-flex" type="text" name="bairro" placeholder="Bairro" style="margin: 0px 0px 8px;height: 30px;">
+                                <input class="form-control d-inline-flex" type="text" name="cidade" placeholder="Cidade" style="margin: 0px 0px 8px;height: 30px;">
+                                <input class="form-control d-inline-flex align-items-md-end" type="text" name="estado" placeholder="Estado" style="margin: 0px 0px 8px;height: 30px;">
+                            </div>
+                            <div style="margin: 0px 0px 8px;">
+                                <input class="form-control" type="tel" name="telefone" placeholder="Telefone" style="height: 30px;margin: 0px 0px 8px;">
+                                <input class="form-control" type="tel" name="celular" placeholder="Celular" style="height: 30px;margin: 0px 0px 8px;">
+                            </div>
+                            <div style="margin: 0px 0px 8px;">
+                                <input type="password" name="Senha" placeholder="Senha" style="margin: 0px 0px 8px;height: 30px;margin-right: 8px;">
+                                <input type="password" name="Confirmar Senha" placeholder="Confirmar Senha" style="margin: 0px 0px 8px;height: 30px;">
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>
+                                            Grupo de acesso:
+                                            <select class="form-select" name="grupoacesso" style="height: 34px;">
+                                                <optgroup label="Selecione">
+                                                    <option value="imp">Importação</option>
+                                                    <option value="usu">Usuário</option>
+                                                    <option value="adm">Administrador</option>
+                                                </optgroup>
+                                            </select>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>
+                                            Observações:
+                                            <textarea class="form-control" style="margin: 0px 0px 8px;height: 60px;"></textarea>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-success" type="reset">Cancelar</button>
+                                    <button class="btn btn-success text-bg-success" type="submit">Cadastrar</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                  </div>
-                  <div>
-                    <div class="row">
-                      <div class="col">
-                        <p>
-                          Observações:<textarea
-                            class="form-control"
-                            style="margin: 0px 0px 8px; height: 60px"
-                          ></textarea>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="text-align: center">
-                    <div class="btn-group" role="group">
-                      <button class="btn btn-success" type="reset">
-                        Cancelar</button
-                      ><button
-                        id="btn-cadastrar"
-                        class="btn btn-success text-bg-success"
-                        type="submit"
-                      >
-                        Cadastrar
-                      </button>
-                    </div>
-                  </div>
-                  <br>
-                </form>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-     <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
-     <script src="{% static 'funcoes.js' %}"></script>
-    {% endblock %}
-  </body>
+    </div>
+</section>
+<script src="{% static 'jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'funcoes.js' %}"></script>
+{% endblock %}
+</body>
 </html>

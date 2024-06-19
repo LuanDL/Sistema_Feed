@@ -2,84 +2,79 @@
 {% load static %}
 
 {% block 'head' %}
-  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 {% endblock %}
 
-    {%block 'dashboard'%}
-    <section style="margin-top: 20px; margin-left: 35px; margin-right: 35px">
-      <div class="container">
+{%block 'dashboard'%}
+<section style="margin-top: 20px; margin-left: 35px; margin-right: 35px">
+    <div class="container">
         <div class="row">
-          <div class="col">
-            <div class="card" style="margin-top: 100px">
-              <div class="card-body text-bg-dark">
-                <h1 class="text-center card-title">Cadastrar Máquina</h1>
-                <form
-                  style="
-                    font-family: 'Source Sans Pro', sans-serif;
-                    border-radius: 0px;
-                    border-width: 0px;
-                    max-height: 800px;
-                  "
-                >
-                  <div style="margin: 0px 0px 8px">
-                    <!-- Start: Nome -->
-                    <input
-                      class="form-control"
-                      type="text"
-                      name="MaqNome"
-                      placeholder="Nome"
-                      style="height: 30px"
-                    />
-                    <!-- End: Nome -->
-                  </div>
-                  <div style="margin: 0px 0px 8px">
-                    <!-- Start: Código Maquina -->
-                    <input
-                      class="form-control"
-                      type="text"
-                      name="MaqCod"
-                      placeholder="Código da Máquina"
-                      style="height: 30px"
-                    />
-                    <!-- End: Código Maquina -->
-                  </div>
-                  <div>
-                    <div class="row">
-                      <div class="col">
-                        <p>
-                          Status da Máquina:<select
-                            class="form-select"
-                            style="height: 34px"
-                          >
-                            <optgroup label="Selecione">
-                              <option value="13">Ativa</option>
-                              <option value="12">Bloqueada</option>
-                            </optgroup>
-                          </select>
-                        </p>
-                      </div>
+            <div class="col">
+                <div class="card" style="margin-top: 100px">
+                    <div class="card-body text-bg-dark">
+                        <h1 class="text-center card-title">Cadastrar Máquina</h1>
+                        <form action="{%url 'cadastromaquina'%}" method="POST" style="font-family: 'Source Sans Pro', sans-serif; border-radius: 0px; border-width: 0px; max-height: 800px;">
+                            {% csrf_token %}
+                            <table>
+                              {{form.as_table}}
+                            </table>
+                    {% comment %} </div>
+                    <div style="margin: 0px 0px 8px">
+                        <!-- Start: Nome -->
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="nome"
+                            placeholder="Nome"
+                            style="height: 30px"
+                        >
+                        <!-- End: Nome -->
                     </div>
-                  </div>
-                  <div style="text-align: center">
-                    <div class="btn-group" role="group">
-                      <button class="btn btn-success" type="reset">
-                        Cancelar</button
-                      ><button
-                        class="btn btn-success text-bg-success"
-                        type="submit"
+                    <div style="margin: 0px 0px 8px">
+                        <!-- Start: Código Maquina -->
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="codigo"
+                            placeholder="Código da Máquina"
+                            style="height: 30px"
+                        >
+                        <!-- End: Código Maquina -->
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    Status da Máquina:
+                                    <select class="form-select" style="height: 34px" name="status">
+                                        <optgroup label="Selecione">
+                                            <option value="ativo">Ativa</option>
+                                            <option value="bloqueado">Bloqueada</option>
+                                        </optgroup>
+                                    </select>
+                                </p>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                    <div style="text-align: center">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-success" type="reset">
+                                Cancelar
+                            </button
                       >
-                        Cadastrar
-                      </button>
+                            <button class="btn btn-success text-bg-success" type="submit">
+                                Cadastrar
+                            </button>
+                        </div>
                     </div>
-                  </div>
                 </form>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
-    {% endblock %}
-  </body>
+    </div>
+</div>
+</div>
+</section>
+<script src="{% static 'jquery-3.7.1.min.js' %}"></script>
+{% endblock %}
+</body>
 </html>

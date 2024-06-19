@@ -1,0 +1,92 @@
+{% extends "Navbar.html" %}
+{% load static %}
+
+{% block 'head' %}
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+{% endblock %}
+
+    {%block 'dashboard'%}
+    <section style="margin-top: 20px;margin-left: 35px;margin-right: 35px;height: 100%;">
+      <div class="container" style="height: 100%;">
+        <div class="row" style="height: 100%;">
+          <div class="col" style="width: 100%;height: 100%;">
+            <div class="card" style="margin: 100px 0px 0px;margin-top: 100px;width: 100%;min-width: 0px;height: 100%;">
+              <div class="card-body text-bg-dark" style="height: 100%;">
+                <h1 class="text-center card-title">Relatório de Máquinas</h1><div style="text-align: center;">
+                  <div class="table-responsive text-white">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th class="text-white">Nome</th>
+                          <th class="text-white">Código</th>
+                          <th class="text-white">Data de Cadastro</th>
+                          <th class="text-white">Status</th>
+                          <th class="text-white">Ações</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="text-center text-bg-light">
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">Bancada</td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <br />C4041C61<br /><br />
+                          </td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <br />28/01/2015 04h:01m:39s<br /><br />
+                          </td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">Ativo</td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <div class="btn-group btn-group-sm" role="group">
+                              <button class="btn btn-primary text-bg-primary" type="button">Editar</button><button class="btn btn-primary" type="button">Deletar</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="text-center text-bg-light">
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <br />Trevisan ATT2000 I (Bom Futuro)<br /><br />
+                          </td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <br />C4035FD4<br /><br />
+                          </td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <br />11/02/2015 10h:02m:57s<br /><br />
+                          </td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">Bloqueado</td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <div class="btn-group btn-group-sm" role="group">
+                              <button class="btn btn-primary text-bg-primary" type="button">Editar</button><button class="btn btn-primary" type="button">Deletar</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="text-center text-bg-light">
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <br /><br />Trevisan ATT2000 (Fazenda Rochedo III)
+                          </td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <br /><br />C40387B3
+                          </td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <br />08/06/2015 04h:06m:27s
+                          </td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">Ativo</td>
+                          <td class="text-center border rounded-0 border-1" style="text-align: center;position: relative;">
+                            <div class="btn-group btn-group-sm" role="group">
+                              <button class="btn btn-primary text-bg-primary" type="button">Editar</button><button class="btn btn-primary" type="button">Deletar</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div><button class="btn btn-primary text-bg-success" type="button" href="{% url 'maquinas' %}">Cadastrar nova máquina</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
+    {% endblock %}
+  </body>
+</html>

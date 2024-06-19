@@ -2,72 +2,78 @@
 {% load static %}
 
 {% block 'head' %}
-  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 {% endblock %}
 
-    {%block 'dashboard'%}
-    <section style="margin-top: 20px; margin-left: 35px; margin-right: 35px">
-      <div class="container">
+{%block 'dashboard'%}
+<section style="margin-top: 20px; margin-left: 35px; margin-right: 35px">
+    <div class="container">
         <div class="row">
-          <div class="col">
-            <div class="card" style="margin-top: 100px">
-              <div class="card-body text-bg-dark">
-                <h1 class="text-center card-title">Cadastrar Local</h1>
-                <form
-                  style="
-                    font-family: 'Source Sans Pro', sans-serif;
-                    border-radius: 0px;
-                    border-width: 0px;
-                    max-height: 800px;
-                  "
-                >
-                  <div style="margin: 0px 0px 8px">
-                    <!-- Start: Nome --><input
-                      class="form-control"
-                      type="text"
-                      name="LocalUsuario"
-                      placeholder="Usuário"
-                      style="height: 30px"
-                    /><!-- End: Nome -->
+            <div class="col">
+                <div class="card" style="margin-top: 100px">
+                    <div class="card-body text-bg-dark">
+                        <h1 class="text-center card-title">Cadastrar Local</h1>
+                        <form action="{%url 'cadastrolocal'%}" method="POST" style="font-family: 'Source Sans Pro', sans-serif; border-radius: 0px; border-width: 0px; max-height: 800px;">
+                          {% csrf_token %}
+                          <table>
+                            {{form.as_table}}
+                          </table>
+                            {% comment %}
+                            <div style="margin: 0px 0px 8px">
+                                <!-- Start: Nome -->
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    name="LocalUsuario"
+                                    placeholder="Usuário"
+                                    style="height: 30px"
+                                >
+                                <!-- End: Nome -->
+                            </div>
+                            <div style="margin: 0px 0px 8px">
+                                <!-- Start: Local -->
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    name="Local"
+                                    placeholder="Local"
+                                    style="height: 30px"
+                                >
+                                <!-- End: Local -->
+                            </div>
+                            <div style="margin: 0px 0px 8px">
+                                <!-- Start: LocalMaq -->
+                                <input
+                                    class="form-control"
+                                    type="text"
+                                    name="LocalMaq"
+                                    placeholder="Selecione uma Máquina:"
+                                    style="height: 30px"
+                                >
+                                <!-- End: LocalMaq -->
+                            </div>
+                            {% endcomment %}
+
+                            <div style="text-align: center">
+                              <div class="btn-group" role="group">
+                                  <button class="btn btn-success" type="reset">
+                                      Cancelar
+                                  </button
+                            >
+                                  <button class="btn btn-success text-bg-success" type="submit">
+                                      Cadastrar
+                                  </button>
+                              </div>
+                          </div>
+                      </form>
                   </div>
-                  <div style="margin: 0px 0px 8px">
-                    <!-- Start: Local --><input
-                      class="form-control"
-                      type="text"
-                      name="Local"
-                      placeholder="Local"
-                      style="height: 30px"
-                    /><!-- End: Local -->
-                  </div>
-                  <div style="margin: 0px 0px 8px">
-                    <!-- Start: LocalMaq --><input
-                      class="form-control"
-                      type="text"
-                      name="LocalMaq"
-                      placeholder="Selecione uma Máquina:"
-                      style="height: 30px"
-                    /><!-- End: LocalMaq -->
-                  </div>
-                  <div style="text-align: center">
-                    <div class="btn-group" role="group">
-                      <button class="btn btn-success" type="reset">
-                        Cancelar</button
-                      ><button
-                        class="btn btn-success text-bg-success"
-                        type="submit"
-                      >
-                        Cadastrar
-                      </button>
-                    </div>
-                  </div>
-                </form>
               </div>
-            </div>
           </div>
-        </div>
       </div>
-    </section>
-    <script src="{% static 'jquery-3.7.1.min.js' %}"></script> 
-    {% endblock %}
-  </body>
-</html>
+      </div>
+      </section>
+      <script src="{% static 'jquery-3.7.1.min.js' %}"></script>
+      {% endblock %}
+      </body>
+      </html>
+      

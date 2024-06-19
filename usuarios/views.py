@@ -1,43 +1,47 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from usuarios.models import Perfil
-import re
-
-def validar_email(email):
-    return re.fullmatch(re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'), email)
+from django.http import HttpResponse 
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 def usuarios(request):
     if request.method == "GET":
-        usuario_list = Perfil.objects.all()
-        return render(request, 'CadUsuarios.html', {'usuarios': usuario_list})
-    elif request.method == "POST":
-        nome = request.POST.get('nome')
-        email = request.POST.get('email')
-        # ... outros campos ...
+        return render(request, 'CadUsuarios.html')
+    else:
+        username = request.POST.get('username')
+        email= request.POST.get('email')
+        senha = request.POST.get('senha')
+        cep = request.POST.get('cep')
+        endereco = request.POST.get('endereco')
+        numero = request.POST.get('numero')
+        bairro = request.POST.get('bairro')
+        cidade = request.POST.get('cidade')
+        estado = request.POST.get('estado')
+        telefone = request.POST.get('telefone')
+        celular = request.POST.get('celular')
+        grupoacesso = request.POST.get('grupoacesso')
+        observacoes = request.POST.get('observacoes')
 
-        # Consultar se o email já foi cadastrado
-        usuarios_query = Perfil.objects.filter(email=email)
-        if usuarios_query.exists():
-            return render(request, 'CadUsuarios.html', {
-                'error_message': 'Email já cadastrado.',
-                # ... outros campos para preencher o formulário novamente ...
-            })
+        user = User.objects.filter(username=username).first()
 
-        # Consultar se o email é valido
-        if not validar_email(email):
-            return render(request, 'CadUsuarios.html', {
-                'error_message': 'Email inválido.',
-                # ... outros campos para preencher o formulário novamente ...
-            })
+        if user:
+            return HttpResponse('Já existe um usuário com esse username')
+        
+        user = User.objects.create_user(username=username, email=email, password=senha)
+        user.save()
 
-        # Se passar pelas validações, criar o novo usuário
-        novo_usuario = Perfil(
-            nome=nome,
-            email=email,
-            # ... outros campos ...
-        )
-        novo_usuario.save()
-        return HttpResponse('Usuário criado com sucesso!')
+    return HttpResponse ('Usuário cadastrado com sucesso')
 
-    # Se não for GET nem POST, retorna um erro 405
-    return HttpResponse('Método não permitido', status=405)
+def login(request):
+    if request.method == "GET":
+        return render(request, 'login.html')
+    else:
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+
+        user = authenticate(username=username, password=senha)
+
+        if user:
+            login(request, user)
+            return HttpResponse('autenticado')
+        else:
+            return HttpResponse('Email ou senha invalidos')
